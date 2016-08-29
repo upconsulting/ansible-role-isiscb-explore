@@ -1,0 +1,19 @@
+---
+
+- include: create_users_and_groups.yml
+
+- include: install_dependencies.yml
+
+- include: setup_virtualenv.yml
+
+- include: setup_git.yml
+
+- include: setup_django_app.yml
+
+- include: setup_supervisor.yml
+
+- include: set_file_permissions.yml
+
+- include: setup_gunicorn.yml
+
+- include: setup_nginx.yml

@@ -1,0 +1,7 @@
+cluster.name: isiscb-production-cluster
+discovery.type: ec2
+discovery.ec2.groups: isiscb-production-elasticsearch-sg
+cloud.aws.region: us-west-2
+
+bootstrap.mlockall: true
+action.disable_delete_all_indices: true

@@ -1,0 +1,20 @@
+---
+
+git_repo: https://github.com/upconsulting/IsisCB.git
+
+project_name: isiscb-production
+application_name: isiscb
+
+setup_git_repo: yes
+git_branch: master
+
+
+gunicorn_num_workers: 3
+gunicorn_max_requests: 0
+gunicorn_timeout_seconds: 300
+
+
+django_settings_file: "{{ application_name }}.production_settings"
+
+run_django_db_migrations: yes
+run_django_collectstatic: yes

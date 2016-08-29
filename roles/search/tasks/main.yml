@@ -1,0 +1,7 @@
+---
+    
+- include: setup_java.yml
+
+- include: install_elasticsearch.yml
+
+- include: setup_elasticsearch.yml

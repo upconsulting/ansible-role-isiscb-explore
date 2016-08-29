@@ -1,0 +1,25 @@
+---
+
+- name: Yum update
+  yum: name=* state=latest update_cache=yes
+  
+- name: Packages for yum.
+  yum: name={{ item }} state=latest
+  with_items:
+  - git
+  - postgresql93-devel
+  - freetype-devel
+  - libpng-devel
+  - zlib-devel
+  - libjpeg-turbo-devel
+  - python-pip
+  - nano
+  - emacs
+  - libpq-dev
+  - python-dev
+  - python-pycurl
+  - supervisor
+
+ - name: Upgrade pip
+  pip: name=pip state=latest
+  tags: packages

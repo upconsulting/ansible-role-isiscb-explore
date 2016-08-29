@@ -1,0 +1,17 @@
+---
+
+- name: ensure libselinux-python on CentOS 6.x
+  yum: name=libselinux-python state=present update_cache=yes
+
+- name: add Elasticsearch repo
+  template: src=elasticsearch.repo dest=/etc/yum.repos.d/elasticsearch-{{ es_major_version }}.repo
+
+- name: install yum-version-lock
+  yum: name=yum-plugin-versionlock state=present update_cache=yes
+
+- name: lock elasticsearch version
+  shell: yum versionlock delete 0:elasticsearch* ; yum versionlock add elasticsearch{% if es_version is defined and es_version != "" %}-{{ es_version }}{% endif %}
+
+- name: install Elasticsearch
+  yum: name=elasticsearch{% if es_version is defined and es_version != ""  %}-{{ es_version }}{% endif %} state=present update_cache=yes
+  register: elasticsearch_install_from_repo

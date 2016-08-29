@@ -1,0 +1,11 @@
+---
+
+- name: Provision an IsisCB web server
+  hosts: webservers
+  become: yes
+  become_user: root
+  remote_user: root
+
+  roles:
+    - centos7
+    - web
